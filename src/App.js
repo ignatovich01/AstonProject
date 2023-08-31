@@ -1,8 +1,11 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-qetgrs;
+
 function App() {
-   return <div className='App'>1qgr </div>;
+   //  console.log(1123);
+   //  const xxx = 123;
+
+   return <div className='App'>{1}</div>;
 }
 
 export default App;
