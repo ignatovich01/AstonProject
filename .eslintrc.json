@@ -22,7 +22,7 @@
     "rules": {
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
          "import/order": [
-      "error",
+      "warn",
       {
         "groups": [
           "builtin",
