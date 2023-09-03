@@ -11,7 +11,8 @@ export function MainPage() {
 
    if (isLoading) return <div>Loading...</div>;
    if (error) return <div>Some Error</div>;
-   //TODO просто проверял и думал как лучше реализовать
+
+   /* TODO просто проверял и думал как лучше реализовать */
    if (!isLoading) {
       console.log(data.docs[1].poster);
    }
