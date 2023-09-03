@@ -1,5 +1,12 @@
 import React from 'react';
+import { Header } from '../../components/Header/Header';
 
 export function HistoryPage() {
-   return <div>HistoryPage</div>;
+   return (
+      <div>
+         {' '}
+         <Header />
+         HistoryPage
+      </div>
+   );
 }

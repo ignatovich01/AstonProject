@@ -1,5 +1,12 @@
 import React from 'react';
+import { Header } from '../../components/Header/Header';
 
 export function SearchPage() {
-   return <div>SearchPage</div>;
+   return (
+      <div>
+         {' '}
+         <Header />
+         SearchPage
+      </div>
+   );
 }

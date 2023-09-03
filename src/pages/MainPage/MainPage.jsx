@@ -3,7 +3,6 @@ import React from 'react';
 import { Header } from '../../components/Header/Header';
 
 import { useGetMoviesQuery } from '../../store/API/moviesAPI';
-import { ItemComponent } from '../../components/ItemComponent/ItemComponent';
 
 export function MainPage() {
    /* TODO цифра в запросе = страница, временная заглушка */
@@ -20,7 +19,7 @@ export function MainPage() {
          ) : (
             <ul>
                {data.docs.map((item) => (
-                  <ItemComponent key={item.id} itemId={item.id} />
+                  <li key={item.id}>{item.id} </li>
                ))}
             </ul>
          )}

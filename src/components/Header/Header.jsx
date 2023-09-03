@@ -30,16 +30,16 @@ export function Header() {
                   onClick={() => navigate(FAVORITE_ROUTE)}
                   variant='outline-light'
                >
-                  Logo
+                  Favorite
                </Button>
                <Button
                   onClick={() => navigate(HISTORY_ROUTE)}
                   variant='outline-light'
                >
-                  Logo
+                  History
                </Button>
             </div>
-            <div className='auth_buttons'>Выход</div>
+            <Button variant='outline-light'>Выход</Button>
          </div>
       );
    }
@@ -59,13 +59,13 @@ export function Header() {
                onClick={() => navigate(LOGIN_ROUTE)}
                variant='outline-light'
             >
-               Logo
+               Login
             </Button>
             <Button
                onClick={() => navigate(REGISTER_ROUTE)}
                variant='outline-light'
             >
-               Logo
+               Register
             </Button>
          </div>
       </div>
