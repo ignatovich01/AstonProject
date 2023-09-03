@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
 
-function authContext({ children }) {
-   const authContext = React.createContext();
+const AuthContext = React.createContext();
 
+function AuthContextProvider({ children }) {
    const [isAuth, setIsAuth] = useState(
       localStorage.getItem('user') === null
          ? false
          : localStorage.getItem('user').name
    );
+   function toggleIsAuth() {
+      setIsAuth(!isAuth);
+   }
    return (
-      <authContext.Provider value={isAuth}>{children}</authContext.Provider>
+      <AuthContext.Provider value={{ isAuth, toggleIsAuth }}>
+         {children}
+      </AuthContext.Provider>
    );
 }
 
-export { isAuth, authContext };
+export { AuthContextProvider, AuthContext };
