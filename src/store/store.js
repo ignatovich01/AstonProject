@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+
 import { favorites } from './slices/favoriteSlice';
 import { history } from './slices/historySlice';
 import { moviesApi } from './API/moviesAPI';

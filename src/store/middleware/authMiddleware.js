@@ -10,28 +10,24 @@ import { setUser, removeUser } from '../slices/userSlice';
 
 export const authMiddleware = createListenerMiddleware();
 
-function log(string) {
-   console.log(string);
-}
-
 authMiddleware.startListening({
    actionCreator: addToFavorite,
-   effect: log('add to favorite'),
+   effect: () => console.log('addToFavorite'),
 });
 authMiddleware.startListening({
    actionCreator: removeFromFavorite,
-   effect: log('remove from favorite'),
+   effect: () => console.log('removeFromFavorite'),
 });
 authMiddleware.startListening({
    actionCreator: resetFavorites,
-   effect: log('reset favorites'),
+   effect: () => console.log('resetFavorites'),
 });
 
 authMiddleware.startListening({
    actionCreator: setUser,
-   effect: log('set user'),
+   effect: () => console.log('setUser'),
 });
 authMiddleware.startListening({
    actionCreator: removeUser,
-   effect: log('remove from users'),
+   effect: () => console.log('removeUser'),
 });

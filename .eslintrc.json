@@ -41,7 +41,7 @@
     "no-unused-vars" : "warn",
     "import/prefer-default-export": "off",
     "react/jsx-no-useless-fragment": "error",
-    "no-unused-expressions" : ["error", { "allowShortCircuit": true, "allowTernary": true }],
+    "no-unused-expressions" : ["error", { "allowShortCircuit": true, "allowTernary": true }]
       //не работало, добавил строку и убрал строку, заработало)
     // "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
 
