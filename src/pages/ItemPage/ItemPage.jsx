@@ -1,5 +1,11 @@
 import React from 'react';
+import { Header } from '../../components/Header/Header';
 
 export function ItemPage() {
-   return <div>ItemPage</div>;
+   return (
+      <div>
+         <Header />
+         ItemPage
+      </div>
+   );
 }
