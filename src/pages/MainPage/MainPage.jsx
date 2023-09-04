@@ -1,4 +1,5 @@
 import React from 'react';
+import Spinner from 'react-bootstrap/Spinner';
 
 import { Header } from '../../components/Header/Header';
 
@@ -7,21 +8,18 @@ import { ItemComponent } from '../../components/ItemComponent/ItemComponent';
 
 export function MainPage() {
    /* TODO цифра в запросе = страница, временная заглушка */
-   const { data = [], isLoading, error } = useGetMoviesQuery(11);
+   const { data = [], isLoading, error } = useGetMoviesQuery(2);
 
-   if (isLoading) return <div>Loading...</div>;
+   // if (isLoading) return;
    if (error) return <div>Some Error</div>;
 
    /* TODO просто проверял и думал как лучше реализовать */
-   if (!isLoading) {
-      console.log(data.docs[1].poster);
-   }
 
    return (
       <div>
          <Header />
          {isLoading ? (
-            <div>Loading...</div>
+            <Spinner animation='border' />
          ) : (
             <div
                style={{
@@ -33,7 +31,7 @@ export function MainPage() {
                }}
             >
                {data.docs.map((item) => (
-                  <ItemComponent key={item.id} Id={item.id} />
+                  <ItemComponent key={item.id} itemId={item.id} />
                ))}
             </div>
          )}

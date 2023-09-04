@@ -1,0 +1,26 @@
+.wrapper {
+    margin: 50px;
+    display: flex;
+    flex-direction: row;
+}
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin-right: 50px;
+}
+.poster {
+    width: 300;
+    height: 400px;
+
+    margin-bottom: 10px;
+}
+.info {
+    display: flex;
+    flex-direction: column;
+}
+.info_name {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
