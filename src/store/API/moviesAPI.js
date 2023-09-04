@@ -6,15 +6,18 @@ export const moviesApi = createApi({
       baseUrl: 'https://api.kinopoisk.dev/v1.3',
       method: 'GET',
       headers: {
-         'X-API-KEY': '8A74V0P-TRKMDDF-GYJPHDK-FJCRVH6',
+         'X-API-KEY': 'WR06X68-HDTM548-H65E0MZ-JWSZT77',
          Accept: 'application/json',
       },
    }),
    endpoints: (build) => ({
       getMovies: build.query({
-         query: (page) => `/movie?page=${page}`,
+         query: (page) => `/movie?page=${page}&limit=2`,
+      }),
+      getMovieById: build.query({
+         query: (id) => `/movie/${id}`,
       }),
    }),
 });
 
-export const { useGetMoviesQuery } = moviesApi;
+export const { useGetMoviesQuery, useGetMovieByIdQuery } = moviesApi;

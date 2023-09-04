@@ -7,13 +7,14 @@ import { ItemComponent } from '../../components/ItemComponent/ItemComponent';
 
 export function MainPage() {
    /* TODO цифра в запросе = страница, временная заглушка */
-   const { data = [], isLoading, error } = useGetMoviesQuery(11);
+   const { data = [], isLoading, error } = useGetMoviesQuery(2);
 
    if (isLoading) return <div>Loading...</div>;
    if (error) return <div>Some Error</div>;
-   //TODO просто проверял и думал как лучше реализовать
+
+   /* TODO просто проверял и думал как лучше реализовать */
    if (!isLoading) {
-      console.log(data.docs[1].poster);
+      console.log(data);
    }
 
    return (
@@ -32,7 +33,7 @@ export function MainPage() {
                }}
             >
                {data.docs.map((item) => (
-                  <ItemComponent key={item.id} Id={item.id} />
+                  <ItemComponent key={item.id} itemId={item.id} />
                ))}
             </div>
          )}
