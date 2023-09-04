@@ -14,11 +14,7 @@ import style from './ItemPage.module.css';
 export function ItemPage() {
    const params = useParams();
    const itemId = params.id;
-<<<<<<< HEAD
-   const { data = [], isLoading } = useGetMovieByIdQuery(itemId);
-=======
    const { data = [], isLoading, error } = useGetMovieByIdQuery(itemId);
->>>>>>> ui
 
    if (isLoading) {
       return <Spinner animation='border' />;
@@ -26,12 +22,9 @@ export function ItemPage() {
    if (!isLoading) {
       console.log(data);
    }
-<<<<<<< HEAD
-=======
    if (error) {
       return 'error';
    }
->>>>>>> ui
    return (
       <div>
          <Header />
