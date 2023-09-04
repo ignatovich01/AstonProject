@@ -22,7 +22,7 @@ export function Header() {
                   onClick={() => navigate(MAIN_ROUTE)}
                   variant='outline-light'
                >
-                  Logo
+                  HOME
                </Button>
             </div>
             <div className='center_buttons'>
