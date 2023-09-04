@@ -10,7 +10,6 @@ export function MainPage() {
    /* TODO цифра в запросе = страница, временная заглушка */
    const { data = [], isLoading, error } = useGetMoviesQuery(2);
 
-   // if (isLoading) return;
    if (error) return <div>Some Error</div>;
 
    /* TODO просто проверял и думал как лучше реализовать */

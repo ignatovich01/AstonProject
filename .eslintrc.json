@@ -41,9 +41,13 @@
     "no-unused-vars" : "warn",
     "import/prefer-default-export": "off",
     "react/jsx-no-useless-fragment": "error",
+<<<<<<< HEAD
     "no-unused-expressions" : ["error", { "allowShortCircuit": true, "allowTernary": true }],
     "react/jsx-props-no-spreading": "off",
     "react/prop-types": "off"
+=======
+    "no-unused-expressions" : ["error", { "allowShortCircuit": true, "allowTernary": true }]
+>>>>>>> userSlice
       //не работало, добавил строку и убрал строку, заработало)
     // "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
 
