@@ -1,0 +1,22 @@
+.wrapper {
+    width: 700px;
+    border: 2px solid gray;
+    padding: 10px 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
+    border-radius: 20px;
+}
+.panel {
+    margin-right: 5px;
+    width: 100%;
+}
+.input {
+    height: 100%;
+    width: 100%;
+    border-radius: 7px;
+    padding: 0 8px;
+    border: none;
+}

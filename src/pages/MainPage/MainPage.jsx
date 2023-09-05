@@ -5,6 +5,7 @@ import { Header } from '../../components/Header/Header';
 
 import { useGetMoviesQuery } from '../../store/API/moviesAPI';
 import { ItemComponent } from '../../components/ItemComponent/ItemComponent';
+import { Search } from '../../components/Search/Search';
 
 export function MainPage() {
    /* TODO цифра в запросе = страница, временная заглушка */
@@ -20,6 +21,7 @@ export function MainPage() {
    return (
       <div>
          <Header />
+         <Search />
          {isLoading ? (
             <Spinner animation='border' />
          ) : (
