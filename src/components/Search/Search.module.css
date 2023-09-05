@@ -1,4 +1,10 @@
 .wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    margin: auto;
+}
+.top {
     width: 700px;
     border: 2px solid gray;
     padding: 10px 20px;
@@ -6,7 +12,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: auto;
     border-radius: 20px;
 }
 .panel {
@@ -19,4 +24,23 @@
     border-radius: 7px;
     padding: 0 8px;
     border: none;
+}
+.dropdown {
+    margin: auto;
+    position: absolute;
+    margin: auto;
+    top: 150px;
+    /* right: 40%; */
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 0 0 10px 10px;
+}
+li {
+    text-decoration: none;
+
+    color: black;
+    list-style-type: none;
+}
+.link {
+    text-decoration: none;
 }

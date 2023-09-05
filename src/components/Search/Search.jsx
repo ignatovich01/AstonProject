@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Button from 'react-bootstrap/Button';
 
 import { useGetMovieByNameQuery } from '../../store/API/moviesAPI';
+import { useDebounce } from '../../hooks/useDebounce';
 
 import style from './Search.module.css';
-
-import { useDebounce } from '../../hooks/useDebounce';
 
 export function Search() {
    const [search, setSearch] = useState('');
@@ -19,27 +18,40 @@ export function Search() {
       }
    };
 
-   //    const { data } = useGetMovieByNameQuery(debounce, {
-   //       skip: debounce.length < 2,
-   //    });
-   const data = useGetMovieByNameQuery(search);
-   console.log(data);
+   const { data } = useGetMovieByNameQuery(debounce, {
+      skip: debounce.length < 2,
+   });
 
    return (
       <div className={style.wrapper}>
-         <div className={style.panel}>
-            <input
-               type='text'
-               placeholder='Поиск по имени'
-               className={style.input}
-               value={search}
-               onChange={(e) => setSearch(e.target.value)}
-               onKeyDown={(e) => handleKeyPress(e)}
-            />
+         <div className={style.top}>
+            <div className={style.panel}>
+               <input
+                  type='text'
+                  placeholder='Поиск по имени'
+                  className={style.input}
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  onKeyDown={(e) => handleKeyPress(e)}
+               />
+            </div>
+            <Button variant='primary' className={style.button}>
+               Primary
+            </Button>
          </div>
-         <Button variant='primary' className={style.button}>
-            Primary
-         </Button>
+         {search.length > 0 && data.length ? (
+            <div className={style.dropdown}>
+               <ul>
+                  {data?.slice(0, 5).map((item) => (
+                     <Link className={style.link} to={`${item.name}`}>
+                        <li>{item.name}</li>
+                     </Link>
+                  ))}
+               </ul>
+            </div>
+         ) : (
+            ''
+         )}
       </div>
    );
 }
