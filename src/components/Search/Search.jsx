@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import Button from 'react-bootstrap/Button';
 
@@ -12,11 +12,7 @@ import style from './Search.module.css';
 export function Search() {
    const [search, setSearch] = useState('');
    const debounce = useDebounce(search);
-   const handleKeyPress = (event) => {
-      if (event.key === 'Enter') {
-         console.log('enter press here! ');
-      }
-   };
+   const navigate = useNavigate();
 
    const { data } = useGetMovieByNameQuery(debounce, {
       skip: debounce.length < 2,
@@ -32,18 +28,25 @@ export function Search() {
                   className={style.input}
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  onKeyDown={(e) => handleKeyPress(e)}
                />
             </div>
-            <Button variant='primary' className={style.button}>
-               Primary
+            <Button
+               variant='primary'
+               className={style.button}
+               onClick={() => search && navigate(`/search/${search}`)}
+            >
+               Поиск
             </Button>
          </div>
-         {search.length > 0 && data.length ? (
+         {search.length > 0 && data?.length ? (
             <div className={style.dropdown}>
                <ul>
                   {data?.slice(0, 5).map((item) => (
-                     <Link className={style.link} to={`${item.name}`}>
+                     <Link
+                        key={item.id}
+                        className={style.link}
+                        to={`${item.id}`}
+                     >
                         <li>{item.name}</li>
                      </Link>
                   ))}

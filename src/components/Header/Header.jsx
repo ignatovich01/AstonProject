@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import style from './Header.module.css';
+
+import Button from 'react-bootstrap/Button';
+
 import {
    HISTORY_ROUTE,
    MAIN_ROUTE,
@@ -8,7 +10,8 @@ import {
    LOGIN_ROUTE,
    REGISTER_ROUTE,
 } from '../../consts/consts';
-import Button from 'react-bootstrap/Button';
+
+import style from './Header.module.css';
 
 export function Header() {
    const isAuth = false;
@@ -56,6 +59,7 @@ export function Header() {
          </div>
          <div className='auth_buttons'>
             <Button
+               style={{ marginRight: '20px' }}
                onClick={() => navigate(LOGIN_ROUTE)}
                variant='outline-light'
             >

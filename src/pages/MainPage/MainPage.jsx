@@ -31,12 +31,12 @@ export function MainPage() {
                   flexDirection: 'row',
                   flexWrap: 'wrap',
                   margin: '20px',
-                  justifyContent: 'space-around',
                }}
             >
-               {data.docs.map((item) => (
-                  <ItemComponent key={item.id} itemId={item.id} />
-               ))}
+               {data &&
+                  data.docs.map((item) => (
+                     <ItemComponent key={item.id} itemId={item.id} />
+                  ))}
             </div>
          )}
       </div>
