@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { Header } from '../../components/Header/Header';
-import { LoginForm } from '../../components/FormItems/LoginForm';
+import { LoginComponent } from '../../components/AuthComponents/LoginComponent';
 
 export function LoginPage() {
    return (
       <div>
          <Header />
-         <LoginForm />
+         <LoginComponent />
       </div>
    );
 }

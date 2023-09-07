@@ -32,6 +32,7 @@ export function Header() {
                <Button
                   onClick={() => navigate(FAVORITE_ROUTE)}
                   variant='outline-light'
+                  style={{ marginRight: '30px' }}
                >
                   Favorite
                </Button>

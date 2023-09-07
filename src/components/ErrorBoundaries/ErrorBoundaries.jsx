@@ -19,7 +19,7 @@ export class ErrorBoundaries extends Component {
    }
 
    render() {
-      if (this.state.error === true) {
+      if (this.state.error) {
          return <div>Предохранитель словил ошибку</div>;
       }
       return this.props.children;
