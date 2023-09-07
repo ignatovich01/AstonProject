@@ -10,12 +10,9 @@ import { useNavigate } from 'react-router-dom';
 
 import propTypes from 'prop-types';
 
-import isOccupiedEmail from '../../../utils/IsOccupiedEmail';
-
-export function RegisterForm({ register }) {
+export function LoginForm({ login }) {
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
-   const [confirmPassword, setConfirmPassword] = useState('');
 
    const navigate = useNavigate();
 
@@ -29,11 +26,10 @@ export function RegisterForm({ register }) {
       }
 
       setValidated(true);
-      if (isOccupiedEmail(email)) {
-         alert('email уже занят');
-      } else {
-         register(email, password);
+      if (login(email, password)) {
          navigate('/');
+      } else {
+         alert('неверный логин или пароль');
       }
    };
 
@@ -65,19 +61,6 @@ export function RegisterForm({ register }) {
                от 3 до 12 символов
             </Form.Control.Feedback>
          </Form.Group>
-         <Form.Group className='mb-3' controlId='formBasicPassword'>
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-               type='password'
-               placeholder='Password'
-               value={confirmPassword}
-               onChange={(e) => setConfirmPassword(e.target.value)}
-               isInvalid={confirmPassword !== password}
-            />
-            <Form.Control.Feedback type='invalid'>
-               пароли не должны отличаться
-            </Form.Control.Feedback>
-         </Form.Group>
 
          <Button variant='primary' type='submit'>
             Submit
@@ -85,6 +68,6 @@ export function RegisterForm({ register }) {
       </Form>
    );
 }
-RegisterForm.propTypes = {
-   register: propTypes.func,
+LoginForm.propTypes = {
+   login: propTypes.func,
 };

@@ -17,7 +17,8 @@ import currentUserKeyBuilder from '../../utils/localStorage/currentUserKeyBuilde
 
 import { createHistory } from '../../store/slices/historySlice';
 import { createFavorite } from '../../store/slices/favoriteSlice';
-import { Register } from './Forms/RegisterForm';
+
+import { RegisterForm } from './Forms/RegisterForm';
 
 import style from './Form.module.css';
 
@@ -50,7 +51,7 @@ export function RegisterComponent() {
       <div className={style.wrapper}>
          <div className={style.block}>
             <h4>Registration</h4>
-            <Register register={register} />
+            <RegisterForm register={register} />
          </div>
          <Link to={LOGIN_ROUTE}>Уже есть аккаунт?</Link>
       </div>
