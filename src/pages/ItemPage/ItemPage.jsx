@@ -27,7 +27,6 @@ export function ItemPage() {
    }
    return (
       <div>
-         <Header />
          <div className={style.wrapper}>
             <div className={style.left}>
                <img

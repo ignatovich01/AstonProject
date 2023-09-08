@@ -6,10 +6,11 @@ const AuthContext = React.createContext();
 
 function AuthContextProvider({ children }) {
    const [isAuth, setIsAuth] = useState(
-      localStorage.getItem('user') === null
+      localStorage.getItem('currentUser') === null
          ? false
-         : localStorage.getItem('user').name
+         : !!JSON.parse(localStorage.getItem('currentUser'))
    );
+
    function toggleIsAuth() {
       setIsAuth(!isAuth);
    }

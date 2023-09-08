@@ -6,8 +6,6 @@ import { RegisterComponent } from '../../components/AuthComponents/RegisterCompo
 export function RegisterPage() {
    return (
       <div>
-         {' '}
-         <Header />
          <RegisterComponent />
       </div>
    );

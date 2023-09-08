@@ -22,7 +22,7 @@ export function ItemComponent({ itemId }) {
    }
    return (
       <div className={style.item}>
-         <Link to={`${MAIN_ROUTE}${itemId}`}>
+         <Link to={`${MAIN_ROUTE}movie/${itemId}`}>
             <img
                className={style.poster}
                src={data.poster ? data.poster.url : '404'}

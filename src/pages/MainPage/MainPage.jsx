@@ -9,20 +9,13 @@ import { Search } from '../../components/Search/Search';
 import { ErrorBoundaries } from '../../components/ErrorBoundaries/ErrorBoundaries';
 
 export function MainPage() {
-   /* TODO цифра в запросе = страница, временная заглушка */
-   const { data = [], isLoading, error } = useGetMoviesQuery(2);
+   const { data = [], isLoading, error } = useGetMoviesQuery();
 
    if (error) return <div>Some Error</div>;
-
-   /* TODO просто проверял и думал как лучше реализовать */
-   if (!isLoading) {
-      console.log(data);
-   }
 
    return (
       <ErrorBoundaries>
          <div>
-            <Header />
             <Search />
             {isLoading ? (
                <Spinner animation='border' />

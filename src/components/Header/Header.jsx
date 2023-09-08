@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import Button from 'react-bootstrap/Button';
+
+import { AuthContext } from '../../store/context/authContext';
 
 import {
    HISTORY_ROUTE,
@@ -13,8 +14,15 @@ import {
 
 import style from './Header.module.css';
 
+import { useDispatch } from 'react-redux';
+import currentUserKeyBuilder from '../../utils/localStorage/currentUserKeyBuilder';
+
 export function Header() {
-   const isAuth = false;
+   const dispatch = useDispatch();
+   const { isAuth, toggleIsAuth } = useContext(AuthContext);
+   // if(localStorage.getItem(currentUserKeyBuilder()))
+   // dispatch(createFavorite(''));
+
    const navigate = useNavigate();
 
    if (isAuth) {

@@ -6,7 +6,6 @@ import { LoginComponent } from '../../components/AuthComponents/LoginComponent';
 export function LoginPage() {
    return (
       <div>
-         <Header />
          <LoginComponent />
       </div>
    );
