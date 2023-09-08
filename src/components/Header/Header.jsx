@@ -15,7 +15,10 @@ import {
 import style from './Header.module.css';
 
 import { useDispatch } from 'react-redux';
+
 import currentUserKeyBuilder from '../../utils/localStorage/currentUserKeyBuilder';
+import setDataInLocalStorage from '../../utils/localStorage/setDataInLocalStorage';
+import { removeUser } from '../../store/slices/userSlice';
 
 export function Header() {
    const dispatch = useDispatch();
@@ -24,7 +27,12 @@ export function Header() {
    // dispatch(createFavorite(''));
 
    const navigate = useNavigate();
-
+   const logout = () => {
+      navigate('/');
+      setDataInLocalStorage('currentUser', {});
+      dispatch(removeUser());
+      toggleIsAuth();
+   };
    if (isAuth) {
       return (
          <div className={style.header}>
@@ -51,7 +59,9 @@ export function Header() {
                   History
                </Button>
             </div>
-            <Button variant='outline-light'>Выход</Button>
+            <Button variant='outline-light' onClick={logout}>
+               Выход
+            </Button>
          </div>
       );
    }

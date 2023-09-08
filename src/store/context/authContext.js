@@ -8,7 +8,7 @@ function AuthContextProvider({ children }) {
    const [isAuth, setIsAuth] = useState(
       localStorage.getItem('currentUser') === null
          ? false
-         : !!JSON.parse(localStorage.getItem('currentUser'))
+         : !!JSON.parse(localStorage.getItem('currentUser')).name
    );
 
    function toggleIsAuth() {

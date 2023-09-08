@@ -1,8 +1,6 @@
 import React from 'react';
 import Spinner from 'react-bootstrap/Spinner';
 
-import { Header } from '../../components/Header/Header';
-
 import { useGetMoviesQuery } from '../../store/API/moviesAPI';
 import { ItemComponent } from '../../components/ItemComponent/ItemComponent';
 import { Search } from '../../components/Search/Search';
