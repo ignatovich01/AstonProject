@@ -1,0 +1,18 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.block {
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 20px;
+
+    background-color: white;
+}
+h4 {
+    display: flex;
+    justify-content: center;
+}
