@@ -14,11 +14,11 @@ import { addToHistory } from '../../store/slices/historySlice';
 
 export function Search() {
    const [search, setSearch] = useState('');
-   const debounce = useDebounce(search);
+   const useDebounceHook = useDebounce(search);
    const navigate = useNavigate();
    const dispatch = useDispatch();
-   const { data } = useGetMovieByNameQuery(debounce, {
-      skip: debounce.length < 2,
+   const { data } = useGetMovieByNameQuery(useDebounceHook, {
+      skip: useDebounceHook.length < 2,
    });
    const addToHistoryHandler = () => {
       dispatch(addToHistory(search));

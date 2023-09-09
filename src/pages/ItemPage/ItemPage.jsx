@@ -47,7 +47,7 @@ export function ItemPage() {
                   ))}
                </div>
                <p />
-               <div>{data?.shortDescription}</div>
+               <div>{data.shortDescription}</div>
                <div>
                   <p /> Бюджет {data.budget.value}
                   {data.budget.currency}
