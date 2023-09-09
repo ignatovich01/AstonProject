@@ -5,12 +5,12 @@
 
 * Пишем функциональные компоненты c хуками в приоритете над классовыми: [Header](./src/components/Header/Header.jsx)
 * Есть четкое разделение на умные и глупые компоненты. Пример умного: [Search](./src/components/Search/Search.jsx), пример глупого: [LoginPage](./src/pages/LoginPage/LoginPage.jsx)
-* Есть рендеринг списков: [MainPage](./src/pages/MainPage/MainPage.js)
-* Реализована хотя бы одна форма: [LoginForm](./src/components/AuthComponents/Forms/LoginForm.js)
+* Есть рендеринг списков: [MainPage](./src/pages/MainPage/MainPage.jsx)
+* Реализована хотя бы одна форма: [LoginForm](./src/components/AuthComponents/Forms/LoginForm.jxs)
 * Есть применение Контекст API: [authContext](./src/store/context/authContext.js)
-* Есть применение предохранителя: [ErrorBoundaries](./src/components/ErrorBoundaries/ErrorBoundaries.js)
+* Есть применение предохранителя: [ErrorBoundaries](./src/components/ErrorBoundaries/ErrorBoundaries.jsx)
 * Есть хотя бы один кастомный хук: [useDebounce](./src/hooks/useDebounce.js)
-* Хотя бы несколько компонентов используют PropTypes:  [LoginForm](./src/components/AuthComponents/Forms/LoginForm.js) ,[RegisterForm](./src/components/AuthComponents/Forms/RegisterForm.js)
+* Хотя бы несколько компонентов используют PropTypes:  [LoginForm](./src/components/AuthComponents/Forms/LoginForm.jsx) ,[RegisterForm](./src/components/AuthComponents/Forms/RegisterForm.jsx)
 * Поиск не должен триггерить много запросов к серверу:  [useDebounce](./src/hooks/useDebounce.js)
 * Есть применение lazy + Suspense: App
 
