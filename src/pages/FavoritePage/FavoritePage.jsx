@@ -1,7 +1,9 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { ItemComponent } from '../../components/ItemComponent/ItemComponent';
 import Button from 'react-bootstrap/Button';
+
+import { useDispatch, useSelector } from 'react-redux';
+
+import { ItemComponent } from '../../components/ItemComponent/ItemComponent';
 import { resetFavorites } from '../../store/slices/favoriteSlice';
 
 export default function FavoritePage() {

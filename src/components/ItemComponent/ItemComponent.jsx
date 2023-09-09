@@ -11,7 +11,6 @@ import { MAIN_ROUTE } from '../../consts/consts';
 import { ButtonFavorite } from '../ButtonFavorite/ButtonFavorite';
 
 import style from './ItemComponent.module.css';
-import { useSelector } from 'react-redux';
 
 export function ItemComponent({ itemId }) {
    const { data = [], isLoading, error } = useGetMovieByIdQuery(itemId);

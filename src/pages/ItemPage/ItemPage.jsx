@@ -4,14 +4,11 @@ import { useParams } from 'react-router-dom';
 
 import Spinner from 'react-bootstrap/Spinner';
 
-import { Header } from '../../components/Header/Header';
 import { useGetMovieByIdQuery } from '../../store/API/moviesAPI';
 
 import { ButtonFavorite } from '../../components/ButtonFavorite/ButtonFavorite';
 
 import style from './ItemPage.module.css';
-
-import { useSelector } from 'react-redux/es/hooks/useSelector';
 
 export default function ItemPage() {
    const params = useParams();

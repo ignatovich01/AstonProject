@@ -8,7 +8,6 @@ const favoriteMiddleware = (state) => (next) => (action) => {
          currentUserKeyBuilder('favorite'),
          JSON.stringify([...favorites, action.payload])
       );
-      console.log('add to favorite');
    }
 
    if (action.type === 'favorites/removeFromFavorite') {
@@ -16,14 +15,12 @@ const favoriteMiddleware = (state) => (next) => (action) => {
          currentUserKeyBuilder('favorite'),
          JSON.stringify(favorites.filter((item) => item !== action.payload))
       );
-      console.log('remove from favorite');
    }
    if (action.type === 'favorites/resetFavorites') {
       localStorage.setItem(
          currentUserKeyBuilder('favorite'),
          JSON.stringify([])
       );
-      console.log('reset favorite');
    }
 
    return next(action);

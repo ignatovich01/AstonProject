@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,13 +10,10 @@ import {
    removeFromFavorite,
 } from '../../store/slices/favoriteSlice';
 import { AuthContext } from '../../store/context/authContext';
-import { LOGIN_ROUTE, REGISTER_ROUTE } from '../../consts/consts';
-import currentUserKeyBuilder from '../../utils/localStorage/currentUserKeyBuilder';
-import getDataFromLocalStorage from '../../utils/localStorage/getDataFromLocalStorage';
+import { LOGIN_ROUTE } from '../../consts/consts';
 
 export function ButtonFavorite({ id }) {
    const favorites = useSelector((state) => state.favorites.favorites) || [];
-   console.log(favorites);
    const isFavoriteIncludes = favorites.includes(id);
    const dispatch = useDispatch();
 

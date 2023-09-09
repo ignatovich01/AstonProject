@@ -2,13 +2,13 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { resetHistory } from '../../store/slices/historySlice';
 import { Link } from 'react-router-dom';
+
+import { resetHistory } from '../../store/slices/historySlice';
 
 export default function HistoryPage() {
    const dispatch = useDispatch();
    const history = useSelector((state) => state.history.history);
-   console.log(history);
    if (history.length > 0) {
       return (
          <div>

@@ -8,14 +8,12 @@ const historyMIddlewares = (state) => (next) => (action) => {
          currentUserKeyBuilder('history'),
          JSON.stringify([...history, action.payload])
       );
-      console.log('gistory middleware add');
    }
    if (action.type === 'history/resetHistory') {
       localStorage.setItem(
          currentUserKeyBuilder('history'),
          JSON.stringify([])
       );
-      console.log('gistory middleware remove');
    }
 
    return next(action);

@@ -3,10 +3,9 @@ import React, { useContext, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { MAIN_ROUTE } from '../../consts/consts';
+import { AuthContext } from '../../store/context/authContext';
 
 import { authRoutes, publicRoutes } from './router';
-
-import { AuthContext } from '../../store/context/authContext';
 
 export function AppRouter() {
    const { isAuth } = useContext(AuthContext);

@@ -1,16 +1,16 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 
 import { Link, useNavigate } from 'react-router-dom';
 
 import Button from 'react-bootstrap/Button';
+import { useDispatch } from 'react-redux';
 
 import { useGetMovieByNameQuery } from '../../store/API/moviesAPI';
 import { useDebounce } from '../../hooks/useDebounce';
+import { addToHistory } from '../../store/slices/historySlice';
 
 import style from './Search.module.css';
-import { useDispatch } from 'react-redux';
-
-import { addToHistory } from '../../store/slices/historySlice';
 
 export function Search() {
    const [search, setSearch] = useState('');

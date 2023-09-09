@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import { lazy } from 'react';
 
 import {
    MAIN_ROUTE,
