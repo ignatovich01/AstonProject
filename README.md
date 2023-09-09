@@ -15,7 +15,7 @@
 * Есть применение lazy + Suspense: App
 
 ## Redux
-* [Используем Modern Redux with Redux Toolkit](../blob/master/LICENSE)
+* [Используем Modern Redux with Redux Toolkit](../src/pages)
 * Используем слайсы: authSlice
 * Есть хотя бы одна кастомная мидлвара: logger
 * Используется RTK Query: apiSlice
