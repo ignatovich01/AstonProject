@@ -5,19 +5,25 @@ import Button from 'react-bootstrap/Button';
 import { resetFavorites } from '../../store/slices/favoriteSlice';
 
 export function FavoritePage() {
-   // const dispatch = useDispatch();
+   const dispatch = useDispatch();
    const favorites = useSelector((state) => state.favorites.favorites);
 
-   const resetHandler = () => {
-      // dispatch(resetFavorites());
-   };
    if (favorites.length > 0) {
       return (
          <div>
-            <Button onClick={resetHandler}>Reset all favorites</Button>
-            {favorites.map((item) => (
-               <ItemComponent key={item.id} itemId={item} />
-            ))}
+            <Button
+               style={{ marginLeft: '20px' }}
+               onClick={() => {
+                  dispatch(resetFavorites());
+               }}
+            >
+               Reset all favorites
+            </Button>
+            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+               {favorites.map((item) => (
+                  <ItemComponent key={item.id} itemId={item} />
+               ))}
+            </div>
          </div>
       );
    }

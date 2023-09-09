@@ -29,10 +29,10 @@ export function Header() {
    const currentUser = getDataFromLocalStorage('currentUser');
 
    dispatch(
-      createFavorite(getDataFromLocalStorage(currentUserKeyBuilder('favorite')))
+      createFavorite(
+         getDataFromLocalStorage(currentUserKeyBuilder('favorite') || [])
+      )
    );
-
-   // console.log(useSelector((state) => state.favorites.favorites));
 
    const navigate = useNavigate();
    const logout = () => {

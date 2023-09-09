@@ -19,7 +19,10 @@ const favoriteMiddleware = (state) => (next) => (action) => {
       console.log('remove from favorite');
    }
    if (action.type === 'favorites/resetFavorites') {
-      localStorage.setItem(currentUserKeyBuilder('favorite'), []);
+      localStorage.setItem(
+         currentUserKeyBuilder('favorite'),
+         JSON.stringify([])
+      );
       console.log('reset favorite');
    }
 
