@@ -11,17 +11,17 @@ import { ButtonFavorite } from '../../components/ButtonFavorite/ButtonFavorite';
 
 import style from './ItemPage.module.css';
 
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+
 export function ItemPage() {
    const params = useParams();
-   const itemId = params.id;
+   const itemId = Number(params.id);
    const { data = [], isLoading, error } = useGetMovieByIdQuery(itemId);
 
    if (isLoading) {
       return <Spinner animation='border' />;
    }
-   if (!isLoading) {
-      console.log(data);
-   }
+
    if (error) {
       return 'error';
    }

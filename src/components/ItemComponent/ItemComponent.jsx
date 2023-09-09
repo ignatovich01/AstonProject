@@ -11,15 +11,18 @@ import { MAIN_ROUTE } from '../../consts/consts';
 import { ButtonFavorite } from '../ButtonFavorite/ButtonFavorite';
 
 import style from './ItemComponent.module.css';
+import { useSelector } from 'react-redux';
 
 export function ItemComponent({ itemId }) {
    const { data = [], isLoading, error } = useGetMovieByIdQuery(itemId);
+
    if (isLoading) {
       return <Spinner animation='border' />;
    }
    if (error) {
       return 'some Error';
    }
+
    return (
       <div className={style.item}>
          <Link to={`${MAIN_ROUTE}movie/${itemId}`}>

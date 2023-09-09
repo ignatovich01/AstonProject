@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,11 +12,11 @@ import {
 import { AuthContext } from '../../store/context/authContext';
 import { LOGIN_ROUTE, REGISTER_ROUTE } from '../../consts/consts';
 import currentUserKeyBuilder from '../../utils/localStorage/currentUserKeyBuilder';
+import getDataFromLocalStorage from '../../utils/localStorage/getDataFromLocalStorage';
 
-export function ButtonFavorite(id) {
-   const favorites = useSelector((state) => state.favorites.favorites);
+export function ButtonFavorite({ id }) {
+   const favorites = useSelector((state) => state.favorites.favorites) || [];
    const isFavoriteIncludes = favorites.includes(id);
-
    const dispatch = useDispatch();
 
    const { isAuth } = useContext(AuthContext);
@@ -31,22 +31,18 @@ export function ButtonFavorite(id) {
    };
    const removeFromFav = (movieId) => {
       dispatch(removeFromFavorite(movieId));
-      localStorage.setItem(
-         currentUserKeyBuilder('favorite'),
-         JSON.stringify([favorites.filter((item) => item !== movieId)])
-      );
    };
 
-   if (isFavoriteIncludes) {
+   if (!isFavoriteIncludes) {
       return (
-         <Button variant='danger' size='sm' onClick={() => removeFromFav(id)}>
-            Удалить
+         <Button variant='primary' size='sm' onClick={() => addToFav(id)}>
+            Добавить
          </Button>
       );
    }
    return (
-      <Button variant='primary' size='sm' onClick={() => addToFav(id)}>
-         Добавить
+      <Button variant='danger' size='sm' onClick={() => removeFromFav(id)}>
+         Удалить
       </Button>
    );
 }

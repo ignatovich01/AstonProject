@@ -4,7 +4,8 @@ import { favorites } from './slices/favoriteSlice';
 import { history } from './slices/historySlice';
 import { moviesApi } from './API/moviesAPI';
 import { user } from './slices/userSlice';
-import localStorageMiddleware from './middleware/localStorageMiddleware';
+import historyMiddleware from './middleware/historyMiddleware';
+import favoriteMiddleware from './middleware/favoriteMiddleware';
 
 export const store = configureStore({
    reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
    middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware().concat(
          moviesApi.middleware,
-         localStorageMiddleware
+         historyMiddleware,
+         favoriteMiddleware
       ),
 });

@@ -17,7 +17,6 @@ export function SearchPage() {
    }
    return (
       <div className={style.wrapper}>
-         <Header />
          {isLoading && <div className={style.movie}>Loading...</div>}
          {error && <div className={style.movie}>Something error. Oops.</div>}
          {data &&

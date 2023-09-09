@@ -14,17 +14,25 @@ import {
 
 import style from './Header.module.css';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import currentUserKeyBuilder from '../../utils/localStorage/currentUserKeyBuilder';
 import setDataInLocalStorage from '../../utils/localStorage/setDataInLocalStorage';
 import { removeUser } from '../../store/slices/userSlice';
+import getDataFromLocalStorage from '../../utils/localStorage/getDataFromLocalStorage';
+import { createHistory } from '../../store/slices/historySlice';
+import { createFavorite } from '../../store/slices/favoriteSlice';
 
 export function Header() {
    const dispatch = useDispatch();
    const { isAuth, toggleIsAuth } = useContext(AuthContext);
-   // if(localStorage.getItem(currentUserKeyBuilder()))
-   // dispatch(createFavorite(''));
+   const currentUser = getDataFromLocalStorage('currentUser');
+
+   dispatch(
+      createFavorite(getDataFromLocalStorage(currentUserKeyBuilder('favorite')))
+   );
+
+   // console.log(useSelector((state) => state.favorites.favorites));
 
    const navigate = useNavigate();
    const logout = () => {

@@ -1,8 +1,7 @@
 import currentUserKeyBuilder from '../../utils/localStorage/currentUserKeyBuilder';
 
-const localStorageMiddleware = (state) => (next) => (action) => {
+const favoriteMiddleware = (state) => (next) => (action) => {
    const { favorites } = state.getState().favorites;
-   const { history } = state.getState().history;
 
    if (action.type === 'favorites/addToFavorite') {
       localStorage.setItem(
@@ -12,28 +11,19 @@ const localStorageMiddleware = (state) => (next) => (action) => {
       console.log('add to favorite');
    }
 
-   if (action.type === 'favorites/deleteFromFavourite') {
+   if (action.type === 'favorites/removeFromFavorite') {
       localStorage.setItem(
          currentUserKeyBuilder('favorite'),
          JSON.stringify(favorites.filter((item) => item !== action.payload))
       );
       console.log('remove from favorite');
    }
-
-   if (action.type === 'history/addToHistory') {
-      localStorage.setItem(
-         currentUserKeyBuilder('history'),
-         JSON.stringify([...history, action.payload])
-      );
-   }
-   if (action.type === 'history/resetHistory') {
-      localStorage.setItem(
-         currentUserKeyBuilder('history'),
-         JSON.stringify([])
-      );
+   if (action.type === 'favorites/resetFavorites') {
+      localStorage.setItem(currentUserKeyBuilder('favorite'), []);
+      console.log('reset favorite');
    }
 
    return next(action);
 };
 
-export default localStorageMiddleware;
+export default favoriteMiddleware;

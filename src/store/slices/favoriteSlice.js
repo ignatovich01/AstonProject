@@ -11,11 +11,11 @@ const favoritesSlice = createSlice({
          state.favorites = action.payload;
       },
       addToFavorite(state, action) {
-         state.favorites.push(action.payload.id);
+         state.favorites.push(action.payload);
       },
       removeFromFavorite(state, action) {
          state.favorites = state.favorites.filter(
-            (item) => action.payload.id !== item.id
+            (item) => action.payload !== item
          );
       },
       resetFavorites(state) {
