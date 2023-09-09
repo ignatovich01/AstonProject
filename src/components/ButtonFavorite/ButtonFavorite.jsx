@@ -31,16 +31,16 @@ export function ButtonFavorite({ id }) {
       dispatch(removeFromFavorite(movieId));
    };
 
-   if (!isFavoriteIncludes) {
+   if (isFavoriteIncludes && isAuth) {
       return (
-         <Button variant='primary' size='sm' onClick={() => addToFav(id)}>
-            Добавить
+         <Button variant='danger' size='sm' onClick={() => removeFromFav(id)}>
+            Удалить
          </Button>
       );
    }
    return (
-      <Button variant='danger' size='sm' onClick={() => removeFromFav(id)}>
-         Удалить
+      <Button variant='primary' size='sm' onClick={() => addToFav(id)}>
+         Добавить
       </Button>
    );
 }
