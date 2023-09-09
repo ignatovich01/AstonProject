@@ -12,7 +12,7 @@ export const moviesApi = createApi({
    }),
    endpoints: (build) => ({
       getMovies: build.query({
-         query: () => `/v1.3/movie?limit=2`,
+         query: () => `/v1.3/movie?limit=1`,
       }),
       getMovieById: build.query({
          query: (id) => ({

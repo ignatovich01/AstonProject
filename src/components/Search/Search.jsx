@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -15,7 +15,6 @@ import style from './Search.module.css';
 
 export function Search() {
    const [isShowSuggest, setIsShowSuggest] = useState(false);
-   const { isAuthValue } = useContext(AuthContext);
    const [search, setSearch] = useState('');
    const useDebounceHook = useDebounce(search);
    const navigate = useNavigate();
@@ -23,9 +22,10 @@ export function Search() {
    const { data } = useGetMovieByNameQuery(useDebounceHook, {
       skip: useDebounceHook.length < 2,
    });
+   const { isAuth } = useContext(AuthContext);
 
    const addToHistoryHandler = () => {
-      if (isAuthValue[0]) {
+      if (isAuth) {
          dispatch(addToHistory(search));
       }
       navigate(`/search/${search}`);

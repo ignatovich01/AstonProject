@@ -34,11 +34,13 @@ export default function ItemPage() {
                <ButtonFavorite id={itemId} />
             </div>
             <div className={style.info}>
-               <div className={style.info_name}>{data.name}</div>
-               <div> {data.year || 'неизвестно'}</div> <p />
+               <div className={style.info_name || 'неизвестно'}>
+                  {data.name || 'неизвестно'}
+               </div>
+               <div> Год : {data.year || 'неизвестно'}</div> <p />
                <div>
                   {data.genres.map((genre) => (
-                     <div key={data?.genres.indexOf(genre)}>
+                     <div key={data.genres.indexOf(genre)}>
                         {' '}
                         * {genre.name || 'неизвестно'}
                      </div>
@@ -48,7 +50,7 @@ export default function ItemPage() {
                <div>Описание :{data.shortDescription || 'неизвестно'}</div>
                <div>
                   <p /> Бюджет : {data.budget.value || 'неизвестно'}
-                  {data.budget.currency || 'неизвестно'}
+                  {data.budget.currency}
                </div>
             </div>
          </div>
