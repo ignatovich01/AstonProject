@@ -16,6 +16,7 @@ import getDataFromLocalStorage from '../../utils/localStorage/getDataFromLocalSt
 
 export function ButtonFavorite({ id }) {
    const favorites = useSelector((state) => state.favorites.favorites) || [];
+   console.log(favorites);
    const isFavoriteIncludes = favorites.includes(id);
    const dispatch = useDispatch();
 

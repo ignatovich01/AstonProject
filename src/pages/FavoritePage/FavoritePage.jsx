@@ -21,7 +21,7 @@ export function FavoritePage() {
             </Button>
             <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                {favorites.map((item) => (
-                  <ItemComponent key={item.id} itemId={item} />
+                  <ItemComponent key={item} itemId={item} />
                ))}
             </div>
          </div>

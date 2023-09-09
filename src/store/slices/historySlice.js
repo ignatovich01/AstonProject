@@ -12,7 +12,7 @@ const historySlice = createSlice({
          state.history = action.payload;
       },
       addToHistory(state, action) {
-         state.history.push(action.payload.id);
+         state.history.push(action.payload);
       },
       resetHistory(state) {
          state.history = [];

@@ -15,14 +15,22 @@ export function SearchPage() {
    if (error) {
       return 'error';
    }
+   if (isLoading) {
+      return <div className={style.movie}>Loading...</div>;
+   }
+   if (data.length > 0) {
+      return (
+         <div className={style.wrapper}>
+            {data &&
+               data.map((item) => (
+                  <ItemComponent key={item.id} itemId={item.id} />
+               ))}
+         </div>
+      );
+   }
    return (
       <div className={style.wrapper}>
-         {isLoading && <div className={style.movie}>Loading...</div>}
-         {error && <div className={style.movie}>Something error. Oops.</div>}
-         {data &&
-            data.map((item) => (
-               <ItemComponent key={item.id} itemId={item.id} />
-            ))}
+         <div>По вашему запросу ничего не найдено</div>
       </div>
    );
 }

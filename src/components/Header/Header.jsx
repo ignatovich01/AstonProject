@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
@@ -28,11 +28,18 @@ export function Header() {
    const { isAuth, toggleIsAuth } = useContext(AuthContext);
    const currentUser = getDataFromLocalStorage('currentUser');
 
-   dispatch(
-      createFavorite(
-         getDataFromLocalStorage(currentUserKeyBuilder('favorite') || [])
-      )
-   );
+   useEffect(() => {
+      dispatch(
+         createFavorite(
+            getDataFromLocalStorage(currentUserKeyBuilder('favorite') || [])
+         )
+      );
+      dispatch(
+         createHistory(
+            getDataFromLocalStorage(currentUserKeyBuilder('history') || [])
+         )
+      );
+   }, []);
 
    const navigate = useNavigate();
    const logout = () => {
