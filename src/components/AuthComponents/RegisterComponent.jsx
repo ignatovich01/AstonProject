@@ -2,14 +2,12 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { LOGIN_ROUTE } from '../../consts/consts';
 
 import { setUser } from '../../store/slices/userSlice';
 import { AuthContext } from '../../store/context/authContext';
-
-import { store } from '../../store/store';
 
 import setDataInLocalStorage from '../../utils/localStorage/setDataInLocalStorage';
 import getDataFromLocalStorage from '../../utils/localStorage/getDataFromLocalStorage';
@@ -25,6 +23,7 @@ import style from './Form.module.css';
 export function RegisterComponent() {
    const dispatch = useDispatch();
    const { toggleIsAuth } = useContext(AuthContext);
+   const user = useSelector((state) => state.user);
 
    function register(userName, userPassword) {
       dispatch(
@@ -33,11 +32,11 @@ export function RegisterComponent() {
             password: userPassword,
          })
       );
-      const currentUser = store.getState().user;
-      setDataInLocalStorage('currentUser', currentUser);
+
+      setDataInLocalStorage('currentUser', user);
       toggleIsAuth();
       const arr = Array.from(getDataFromLocalStorage('users') || []);
-      arr.push(currentUser);
+      arr.push(user);
 
       setDataInLocalStorage('users', arr);
       dispatch(createHistory([]));

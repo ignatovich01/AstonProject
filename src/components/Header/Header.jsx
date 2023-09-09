@@ -25,8 +25,7 @@ import style from './Header.module.css';
 
 export function Header() {
    const dispatch = useDispatch();
-   const { isAuth, toggleIsAuth } = useContext(AuthContext);
-
+   const { isAuthValue, toggleIsAuth } = useContext(AuthContext);
    useEffect(() => {
       dispatch(
          createFavorite(
@@ -47,7 +46,8 @@ export function Header() {
       dispatch(removeUser());
       toggleIsAuth();
    };
-   if (isAuth) {
+
+   if (isAuthValue[0]) {
       return (
          <div className={style.header}>
             <div className='logo'>

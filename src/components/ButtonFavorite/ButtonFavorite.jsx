@@ -17,11 +17,11 @@ export function ButtonFavorite({ id }) {
    const isFavoriteIncludes = favorites.includes(id);
    const dispatch = useDispatch();
 
-   const { isAuth } = useContext(AuthContext);
+   const { isAuthValue } = useContext(AuthContext);
    const navigate = useNavigate();
 
    const addToFav = (movieId) => {
-      if (isAuth) {
+      if (isAuthValue[0]) {
          dispatch(addToFavorite(movieId));
       } else {
          navigate(LOGIN_ROUTE);
@@ -31,7 +31,7 @@ export function ButtonFavorite({ id }) {
       dispatch(removeFromFavorite(movieId));
    };
 
-   if (isFavoriteIncludes && isAuth) {
+   if (isFavoriteIncludes && isAuthValue[0]) {
       return (
          <Button variant='danger' size='sm' onClick={() => removeFromFav(id)}>
             Удалить

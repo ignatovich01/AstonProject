@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 
 const AuthContext = React.createContext();
 
@@ -14,8 +14,10 @@ function AuthContextProvider({ children }) {
    function toggleIsAuth() {
       setIsAuth(!isAuth);
    }
+   const isAuthValue = useMemo(() => [isAuth, setIsAuth], [isAuth]);
+
    return (
-      <AuthContext.Provider value={{ isAuth, toggleIsAuth }}>
+      <AuthContext.Provider value={{ isAuthValue, toggleIsAuth }}>
          {children}
       </AuthContext.Provider>
    );

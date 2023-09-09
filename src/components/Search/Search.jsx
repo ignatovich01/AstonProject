@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -9,10 +9,13 @@ import { useDispatch } from 'react-redux';
 import { useGetMovieByNameQuery } from '../../store/API/moviesAPI';
 import { useDebounce } from '../../hooks/useDebounce';
 import { addToHistory } from '../../store/slices/historySlice';
+import { AuthContext } from '../../store/context/authContext';
 
 import style from './Search.module.css';
 
 export function Search() {
+   const [isShowSuggest, setIsShowSuggest] = useState(false);
+   const { isAuthValue } = useContext(AuthContext);
    const [search, setSearch] = useState('');
    const useDebounceHook = useDebounce(search);
    const navigate = useNavigate();
@@ -20,9 +23,11 @@ export function Search() {
    const { data } = useGetMovieByNameQuery(useDebounceHook, {
       skip: useDebounceHook.length < 2,
    });
-   const addToHistoryHandler = () => {
-      dispatch(addToHistory(search));
 
+   const addToHistoryHandler = () => {
+      if (isAuthValue[0]) {
+         dispatch(addToHistory(search));
+      }
       navigate(`/search/${search}`);
    };
 
@@ -37,6 +42,8 @@ export function Search() {
                   className={style.input}
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
+                  onFocus={() => setIsShowSuggest(true)}
+                  onBlur={() => setTimeout(() => setIsShowSuggest(false), 300)}
                />
             </div>
             <Button
@@ -47,7 +54,7 @@ export function Search() {
                Поиск
             </Button>
          </div>
-         {search.length > 0 && data?.length ? (
+         {search.length > 0 && data?.length && isShowSuggest ? (
             <div className={style.dropdown}>
                <ul>
                   {data?.slice(0, 5).map((item) => (

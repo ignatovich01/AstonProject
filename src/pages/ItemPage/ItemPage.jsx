@@ -28,26 +28,27 @@ export default function ItemPage() {
             <div className={style.left}>
                <img
                   className={style.poster}
-                  src={
-                     data.poster?.url ? data.poster.url : data.poster.previewUrl
-                  }
+                  src={data.poster?.url ? data.poster.url : '404'}
                   alt={data.name}
                />
                <ButtonFavorite id={itemId} />
             </div>
             <div className={style.info}>
                <div className={style.info_name}>{data.name}</div>
-               <div> {data.year}</div> <p />
+               <div> {data.year || 'неизвестно'}</div> <p />
                <div>
                   {data.genres.map((genre) => (
-                     <div key={data.genres.indexOf(genre)}> * {genre.name}</div>
+                     <div key={data?.genres.indexOf(genre)}>
+                        {' '}
+                        * {genre.name || 'неизвестно'}
+                     </div>
                   ))}
                </div>
                <p />
-               <div>{data.shortDescription}</div>
+               <div>Описание :{data.shortDescription || 'неизвестно'}</div>
                <div>
-                  <p /> Бюджет {data.budget.value}
-                  {data.budget.currency}
+                  <p /> Бюджет : {data.budget.value || 'неизвестно'}
+                  {data.budget.currency || 'неизвестно'}
                </div>
             </div>
          </div>
