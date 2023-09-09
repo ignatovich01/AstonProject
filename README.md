@@ -12,7 +12,7 @@
 * Есть хотя бы один кастомный хук: [useDebounce](./src/hooks/useDebounce.js)
 * Хотя бы несколько компонентов используют PropTypes:  [LoginForm](./src/components/AuthComponents/Forms/LoginForm.jsx) ,[RegisterForm](./src/components/AuthComponents/Forms/RegisterForm.jsx)
 * Поиск не должен триггерить много запросов к серверу:  [useDebounce](./src/hooks/useDebounce.js)
-* Есть применение lazy + Suspense: App
+* Есть применение lazy + Suspense: [lazy](./src/components/AppRouter/router.js) [Suspense](./src/components/AppRouter/AppRouter.jsx)
 
 ## Redux
 * [Используем Modern Redux with Redux Toolkit](./src/store/store.js)
@@ -21,4 +21,3 @@
 * Используется RTK Query: [moviesAPI](./src/store/API/moviesAPI.js)
 * Используется Transforming Responses:[moviesAPI](./src/store/API/moviesAPI.js)
 
-[123](./main/)
