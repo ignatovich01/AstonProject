@@ -21,4 +21,4 @@
 * Используется RTK Query: [moviesAPI](../src/store/API/moviesAPI.js)
 * Используется Transforming Responses:[moviesAPI](../src/store/API/moviesAPI.js)
 
-[123](../blob/master/LICENSE)
+[123](./)
