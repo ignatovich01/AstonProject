@@ -15,7 +15,7 @@
 * Есть применение lazy + Suspense: App
 
 ## Redux
-* [Используем Modern Redux with Redux Toolkit](./store/store.js)
+* [Используем Modern Redux with Redux Toolkit](./src/store/store.js)
 * Используем слайсы: [favoriteSlice](../src/store/slices/favoriteSlice.js),  [userSlice](../src/store/slices/userSlice.js)
 * Есть хотя бы одна кастомная мидлвара: [favoriteMiddlwware](../src/store/middleware/favoriteMiddleware.js)
 * Используется RTK Query: [moviesAPI](../src/store/API/moviesAPI.js)
