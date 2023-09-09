@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -25,13 +25,7 @@ export function Search() {
 
       navigate(`/search/${search}`);
    };
-   useEffect(() => {
-      document.getElementById('input').addEventListener('keydown', (event) => {
-         if (event.key === 'Enter') {
-            addToHistoryHandler();
-         }
-      });
-   }, [search]);
+
    return (
       <div className={style.wrapper}>
          <div className={style.top}>
