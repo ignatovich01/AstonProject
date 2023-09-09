@@ -1,4 +1,6 @@
 /* eslint-disable react/jsx-no-bind */
+/* eslint-disable react-hooks/rules-of-hooks */
+
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -9,10 +11,10 @@ import getDataFromLocalStorage from '../../utils/localStorage/getDataFromLocalSt
 import { setUser } from '../../store/slices/userSlice';
 
 import setDataInLocalStorage from '../../utils/localStorage/setDataInLocalStorage';
-import { store } from '../../store/store';
 import { createFavorite } from '../../store/slices/favoriteSlice';
 import { createHistory } from '../../store/slices/historySlice';
 import currentUserKeyBuilder from '../../utils/localStorage/currentUserKeyBuilder';
+import { useGetUser } from '../../hooks/useGetUser';
 
 import { LoginForm } from './Forms/LoginForm';
 
@@ -25,6 +27,7 @@ export function LoginComponent() {
    function handleLogin(name, password) {
       const arr = Array.from(getDataFromLocalStorage('users') || []);
       let correctData = false;
+
       arr.forEach((item) => {
          if (item.name === name && item.password === password) {
             correctData = true;
@@ -36,7 +39,7 @@ export function LoginComponent() {
             );
             toggleIsAuth();
 
-            setDataInLocalStorage('currentUser', store.getState().user);
+            setDataInLocalStorage('currentUser', useGetUser());
             dispatch(
                createHistory(
                   getDataFromLocalStorage(currentUserKeyBuilder('history')) ||

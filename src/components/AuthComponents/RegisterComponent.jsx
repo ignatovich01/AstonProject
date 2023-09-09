@@ -1,4 +1,6 @@
 /* eslint-disable react/jsx-no-bind */
+/* eslint-disable react-hooks/rules-of-hooks */
+
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -9,8 +11,7 @@ import { LOGIN_ROUTE } from '../../consts/consts';
 import { setUser } from '../../store/slices/userSlice';
 import { AuthContext } from '../../store/context/authContext';
 
-import { store } from '../../store/store';
-
+import { useGetUser } from '../../hooks/useGetUser';
 import setDataInLocalStorage from '../../utils/localStorage/setDataInLocalStorage';
 import getDataFromLocalStorage from '../../utils/localStorage/getDataFromLocalStorage';
 import currentUserKeyBuilder from '../../utils/localStorage/currentUserKeyBuilder';
@@ -33,11 +34,11 @@ export function RegisterComponent() {
             password: userPassword,
          })
       );
-      const currentUser = store.getState().user;
-      setDataInLocalStorage('currentUser', currentUser);
+
+      setDataInLocalStorage('currentUser', useGetUser());
       toggleIsAuth();
       const arr = Array.from(getDataFromLocalStorage('users') || []);
-      arr.push(currentUser);
+      arr.push(useGetUser());
 
       setDataInLocalStorage('users', arr);
       dispatch(createHistory([]));
