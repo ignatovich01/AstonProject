@@ -13,7 +13,7 @@ import style from './ItemPage.module.css';
 
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 
-export function ItemPage() {
+export default function ItemPage() {
    const params = useParams();
    const itemId = Number(params.id);
    const { data = [], isLoading, error } = useGetMovieByIdQuery(itemId);

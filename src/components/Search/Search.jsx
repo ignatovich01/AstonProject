@@ -28,8 +28,7 @@ export function Search() {
    useEffect(() => {
       document.getElementById('input').addEventListener('keydown', (event) => {
          if (event.key === 'Enter') {
-            dispatch(addToHistory(search));
-            navigate(`/search/${search}`);
+            addToHistoryHandler();
          }
       });
    }, [search]);

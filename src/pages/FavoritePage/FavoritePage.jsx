@@ -4,7 +4,7 @@ import { ItemComponent } from '../../components/ItemComponent/ItemComponent';
 import Button from 'react-bootstrap/Button';
 import { resetFavorites } from '../../store/slices/favoriteSlice';
 
-export function FavoritePage() {
+export default function FavoritePage() {
    const dispatch = useDispatch();
    const favorites = useSelector((state) => state.favorites.favorites);
 

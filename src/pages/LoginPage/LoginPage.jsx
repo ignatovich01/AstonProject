@@ -2,7 +2,7 @@ import React from 'react';
 
 import { LoginComponent } from '../../components/AuthComponents/LoginComponent';
 
-export function LoginPage() {
+export default function LoginPage() {
    return (
       <div>
          <LoginComponent />

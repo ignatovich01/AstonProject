@@ -6,7 +6,7 @@ import { ItemComponent } from '../../components/ItemComponent/ItemComponent';
 import { Search } from '../../components/Search/Search';
 import { ErrorBoundaries } from '../../components/ErrorBoundaries/ErrorBoundaries';
 
-export function MainPage() {
+export default function MainPage() {
    const { data = [], isLoading, error } = useGetMoviesQuery();
 
    if (error) return <div>Some Error</div>;

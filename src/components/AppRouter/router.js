@@ -1,3 +1,5 @@
+import React, { Suspense, lazy } from 'react';
+
 import {
    MAIN_ROUTE,
    HISTORY_ROUTE,
@@ -7,13 +9,18 @@ import {
    REGISTER_ROUTE,
    SEARCH_ROUTE,
 } from '../../consts/consts';
-import { MainPage } from '../../pages/MainPage/MainPage';
-import { HistoryPage } from '../../pages/HistoryPage/HistoryPage';
-import { FavoritePage } from '../../pages/FavoritePage/FavoritePage';
-import { ItemPage } from '../../pages/ItemPage/ItemPage';
-import { SearchPage } from '../../pages/SearchPage/SearchPage';
-import { RegisterPage } from '../../pages/RegisterPage/RegisterPage';
-import { LoginPage } from '../../pages/LoginPage/LoginPage';
+
+const MainPage = lazy(() => import('../../pages/MainPage/MainPage'));
+const HistoryPage = lazy(() => import('../../pages/HistoryPage/HistoryPage'));
+const FavoritePage = lazy(() =>
+   import('../../pages/FavoritePage/FavoritePage')
+);
+const ItemPage = lazy(() => import('../../pages/ItemPage/ItemPage'));
+const SearchPage = lazy(() => import('../../pages/SearchPage/SearchPage'));
+const RegisterPage = lazy(() =>
+   import('../../pages/RegisterPage/RegisterPage')
+);
+const LoginPage = lazy(() => import('../../pages/LoginPage/LoginPage'));
 
 export const authRoutes = [
    {

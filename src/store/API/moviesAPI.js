@@ -6,7 +6,7 @@ export const moviesApi = createApi({
       baseUrl: 'https://api.kinopoisk.dev',
       method: 'GET',
       headers: {
-         'X-API-KEY': 'GT8KMK4-T5Y4A9M-Q2YVG7Z-XA25NVH',
+         'X-API-KEY': '0JVQAXV-7F646BT-MGAG05A-ZJBVMGK',
          Accept: 'application/json',
       },
    }),

@@ -8,7 +8,7 @@ import { ItemComponent } from '../../components/ItemComponent/ItemComponent';
 
 import style from './Search.module.css';
 
-export function SearchPage() {
+export default function SearchPage() {
    const search = useParams().query;
    const { data, isLoading, error } = useGetMovieByNameQuery(search);
 

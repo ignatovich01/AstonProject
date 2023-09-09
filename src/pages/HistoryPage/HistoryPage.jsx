@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { resetHistory } from '../../store/slices/historySlice';
 import { Link } from 'react-router-dom';
 
-export function HistoryPage() {
+export default function HistoryPage() {
    const dispatch = useDispatch();
    const history = useSelector((state) => state.history.history);
    console.log(history);
@@ -36,13 +36,13 @@ export function HistoryPage() {
                         flexDirection: 'row',
                         marginTop: '20px',
                      }}
+                     key={item}
                   >
                      <div style={{ marginRight: '20px' }}>
-                        {' '}
                         {new Date().toLocaleString()}
                      </div>
 
-                     <Link key={Date.now()} to={`/search/${item}`}>
+                     <Link key={`${item}_`} to={`/search/${item}`}>
                         {item}
                      </Link>
                   </div>
