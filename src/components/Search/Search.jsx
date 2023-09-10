@@ -22,10 +22,10 @@ export function Search() {
    const { data } = useGetMovieByNameQuery(useDebounceHook, {
       skip: useDebounceHook.length < 2,
    });
-   const { isAuth } = useContext(AuthContext);
+   const { value } = useContext(AuthContext);
 
    const addToHistoryHandler = () => {
-      if (isAuth) {
+      if (value[0]) {
          dispatch(addToHistory(search));
       }
       navigate(`/search/${search}`);

@@ -8,10 +8,10 @@ import { AuthContext } from '../../store/context/authContext';
 import { authRoutes, publicRoutes } from './router';
 
 export function AppRouter() {
-   const { isAuth } = useContext(AuthContext);
+   const { value } = useContext(AuthContext);
    return (
       <Routes>
-         {isAuth &&
+         {value[0] &&
             authRoutes.map(({ path, Component }) => (
                <Route
                   key={path}
