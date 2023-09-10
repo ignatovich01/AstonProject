@@ -40,6 +40,7 @@ export function LoginComponent() {
             toggleIsAuth();
 
             setDataInLocalStorage('currentUser', useGetUser());
+
             dispatch(
                createHistory(
                   getDataFromLocalStorage(currentUserKeyBuilder('history')) ||

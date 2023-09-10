@@ -46,6 +46,16 @@ export function RegisterComponent() {
 
       setDataInLocalStorage(currentUserKeyBuilder('history'), []);
       setDataInLocalStorage(currentUserKeyBuilder('favorite'), []);
+      dispatch(
+         createFavorite(
+            getDataFromLocalStorage(currentUserKeyBuilder('favorite') || [])
+         )
+      );
+      dispatch(
+         createHistory(
+            getDataFromLocalStorage(currentUserKeyBuilder('history') || [])
+         )
+      );
    }
 
    return (

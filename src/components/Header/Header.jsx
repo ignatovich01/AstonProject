@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import { useDispatch } from 'react-redux';
@@ -14,12 +14,8 @@ import {
    REGISTER_ROUTE,
 } from '../../consts/consts';
 
-import currentUserKeyBuilder from '../../utils/localStorage/currentUserKeyBuilder';
 import setDataInLocalStorage from '../../utils/localStorage/setDataInLocalStorage';
 import { removeUser } from '../../store/slices/userSlice';
-import getDataFromLocalStorage from '../../utils/localStorage/getDataFromLocalStorage';
-import { createHistory } from '../../store/slices/historySlice';
-import { createFavorite } from '../../store/slices/favoriteSlice';
 
 import style from './Header.module.css';
 
@@ -27,19 +23,6 @@ export function Header() {
    const dispatch = useDispatch();
    const { value } = useContext(AuthContext);
    const { toggleIsAuth } = useContext(AuthContext);
-
-   useEffect(() => {
-      dispatch(
-         createFavorite(
-            getDataFromLocalStorage(currentUserKeyBuilder('favorite') || [])
-         )
-      );
-      dispatch(
-         createHistory(
-            getDataFromLocalStorage(currentUserKeyBuilder('history') || [])
-         )
-      );
-   }, []);
 
    const navigate = useNavigate();
    const logout = () => {
